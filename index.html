@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>walidacja formularza</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Walidacja formularza</h1>
+    </header>
+    <main>
+        <section class="map">
+            <p>Jak do nas dojechać?</p>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2323.1829876184!2d18.58209755194693!3d54.38908280369721!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46fd73bd51f21f8b%3A0x50c8a05c9778d809!2sWy%C5%BCsza%20Szko%C5%82a%20Bankowa%20w%20Gda%C5%84sku!5e0!3m2!1spl!2spl!4v1645292571934!5m2!1spl!2spl" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </section>
+        <section class="form">
+            <h2>Formularz rejestracyjny</h2>
+            <form>
+                <div class="box">
+                    <label for="userName"><span>*</span>Nazwa użytkownika:</label>
+                    <input type="text" id="userName" placeholder="nazwa użytkownika" required>
+                    <p class="error">błąd</p>
+                </div>
+                <div class="box">
+                    <label for="password1"><span>*</span>Hasło:</label>
+                    <input type="password" id="password1" placeholder="podaj hasło" required>
+                    <p class="error">błąd</p>
+                </div>
+                <div class="box">
+                    <label for="password2"><span>*</span>Powtórz hasło:</label>
+                    <input type="password" id="password2" placeholder="powtórz hasło" required>
+                    <p class="error">błąd</p>
+                </div>
+                <div class="box">
+                    <label for="email"><span>*</span>E-mail:</label>
+                    <input type="email" id="email" placeholder="podaj e-mail" required>
+                    <p class="error">błąd</p>
+                </div>
+                <div class="buttons-box">
+                    <button class="clear">Wyczyść formularz</button>
+                    <button class="send">Wyślij formularz</button>
+                </div>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>Projekt WSB 2022 - Zaawansowane technologie internetowe</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
