@@ -17,3 +17,52 @@
 //     "stolica" : "Warszawa",
 //     "populacja" : 32000000
 // }
+
+
+const wilgotnosc = document.querySelector('.wilgotnosc')
+const temperatura = document.querySelector('.temperatura')
+const pogoda = document.querySelector('.pogoda')
+const zdjecie = document.querySelector('.picture')
+const blad = document.querySelector('.error')
+const button = document.querySelector('.check')
+const input = document.querySelector('.city')
+const nazwaMiasta = document.querySelector('.miasto-nazwa')
+
+const API_URL = 'https://api.openweathermap.org/data/2.5/weather?q='
+const API_KEY = '&appid=c58789670bdbb47b3015c68589ed18e3'
+const API_UNITS_METRIC = '&units=metric'
+const API_UNITS_IMPERIAL = '&units=imperial'
+
+const sprawdzPogode = () => {
+    const city = input.value || 'Barcelona'
+    const URL = API_URL + city + API_KEY + API_UNITS_METRIC
+
+    axios.get(URL).then(response => {
+        console.log(response.data)
+        const temp = response.data.main.temp
+        const hum = response.data.main.humidity
+        const status = response.data.weather[0]
+
+        nazwaMiasta.textContent = response.data.name
+        temperatura.textContent = `${Math.round(temp)}°C`
+        wilgotnosc.textContent = `${hum}%`
+        pogoda.textContent = status.main
+        zdjecie.src = `img/${status.icon}.png`
+        blad.style.display = 'none'
+    })
+    .catch(error => {
+        error => console.error(error)
+        input.value = ''
+        blad.style.display = 'block'
+        blad.textContent = "Błędne miasto!"
+    })
+}
+
+
+button.addEventListener('click', sprawdzPogode)
+input.addEventListener('keypress', (event)=> {
+    if (event.keyCode === 13) {
+      event.preventDefault()
+      button.click()
+    }
+  });

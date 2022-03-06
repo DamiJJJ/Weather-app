@@ -4,9 +4,36 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/style.css">
     <title>Pogoda</title>
 </head>
 <body>
+    <header>
+        <h1>Sprawdź pogodę</h1>
+    </header>
+    <main>
+        <section class="pogoda-info">
+            <div class="pogoda-top">
+                <div class="miasto-info">
+                    <h3 class="miasto-nazwa"></h3>
+                    <input type="text" placeholder="wpisz miasto" class="city">
+                    <button class="check">Sprawdź</button>
+                    <p class="error"></p>
+                </div>
+                <img src="" alt="" class="picture">
+            </div>
+            <div class="pogoda-bottom">
+                <p>Pogoda: <span class="pogoda"></span></p>
+                <p>Temperatura: <span class="temperatura"></span></p>
+                <p>Wilgotność: <span class="wilgotnosc"></span></p>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>Projekt WSB 2022 - Zaawansowane technologie internetowe</p>
+    </footer>
+    <!-- Axios pobiera dane zamiast fetch'a w JS -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="scripts/weatherjs.js"></script>
 </body>
 </html>
