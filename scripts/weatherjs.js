@@ -26,6 +26,7 @@ const zdjecie = document.querySelector('.picture')
 const blad = document.querySelector('.error')
 const button = document.querySelector('.check')
 const input = document.querySelector('.city')
+const select = document.querySelector('#jednostki')
 const nazwaMiasta = document.querySelector('.miasto-nazwa')
 
 const API_URL = 'https://api.openweathermap.org/data/2.5/weather?q='
@@ -35,7 +36,18 @@ const API_UNITS_IMPERIAL = '&units=imperial'
 
 const sprawdzPogode = () => {
     const city = input.value || 'Barcelona'
-    const URL = API_URL + city + API_KEY + API_UNITS_METRIC
+    const jednostki = select.value
+    if (jednostki == "metric")
+    {
+        units = API_UNITS_METRIC
+        sign = "°C"
+    }
+    else
+    {
+        units = API_UNITS_IMPERIAL
+        sign = "°F"
+    }
+    const URL = API_URL + city + API_KEY + units
 
     axios.get(URL).then(response => {
         console.log(response.data)
@@ -44,7 +56,7 @@ const sprawdzPogode = () => {
         const status = response.data.weather[0]
 
         nazwaMiasta.textContent = response.data.name
-        temperatura.textContent = `${Math.round(temp)}°C`
+        temperatura.textContent = Math.round(temp) + sign
         wilgotnosc.textContent = `${hum}%`
         pogoda.textContent = status.main
         zdjecie.src = `img/${status.icon}.png`

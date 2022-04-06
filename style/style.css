@@ -89,3 +89,13 @@ button:active {
 .link:focus{
     color: rgb(150, 0, 0);   
 }
+
+select{
+    display: block;
+    margin: 0 auto;
+    width: 60%;
+}
+
+.city{
+   margin: 1rem; 
+}
