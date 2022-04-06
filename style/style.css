@@ -30,6 +30,7 @@ span{
 .error{
     display: none;
     color: red;
+    font-size: small;
 }
 
 form{
@@ -38,7 +39,12 @@ form{
     background-color: #eee;
 }
 
+input {
+    width: 100%;
+}
+
 button{
+    margin: 1rem;
     padding: 1rem;
     background: #0069ed;
     color: white;
@@ -72,10 +78,14 @@ button:active {
 
 .link{
     text-decoration: none;
-    color: red;
+    font-weight: bold;
+    color: rgb(255, 75, 75); 
+    transition: 500ms;
+    -webkit-appearance: none;
+    -moz-appearance: none;
 }
 
-.link:hover{
-    font-weight: bold;
-    color: blueviolet;
+.link:hover,
+.link:focus{
+    color: rgb(150, 0, 0);   
 }
