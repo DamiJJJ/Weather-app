@@ -27,6 +27,10 @@ span{
     color: red;
 }
 
+.weather-display{
+    color: #0d73f0;
+}
+
 .error{
     display: none;
     color: red;
@@ -37,10 +41,24 @@ form{
     text-align: left;
     padding: 10px;
     background-color: #eee;
+    border: 1px solid rgb(114, 114, 114);
+}
+
+h3{
+    display: inline;
+}
+
+.miasto-nazwa{
+    color: #0d73f0;
 }
 
 input {
     width: 100%;
+}
+
+.picture{
+    display: block;
+    margin: 0 auto;
 }
 
 button{
@@ -90,12 +108,27 @@ button:active {
     color: rgb(150, 0, 0);   
 }
 
-select{
+.check{
     display: block;
-    margin: 0 auto;
-    width: 60%;
+    margin: 1rem auto;
 }
 
 .city{
-   margin: 1rem; 
+   margin-bottom: 1rem; 
 }
+
+.pogoda-bottom{
+    display: none;
+    background-color: #ddd;
+    padding: 1rem;
+    border: 1px solid rgb(114, 114, 114);
+}
+
+#aktualna-pogoda{
+    display: flex; 
+    flex-direction: row;
+    justify-content: center;
+}
+
+
+

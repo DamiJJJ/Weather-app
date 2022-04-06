@@ -14,23 +14,32 @@
     <main>
         <section class="pogoda-info">
             <div class="pogoda-top">
-                <div class="miasto-info">
-                    <h3 class="miasto-nazwa"></h3>
+                <div class="miasto-info">                   
                     <input type="text" placeholder="wpisz miasto" class="city">
                     <label for="jednostki">Jednostki temperatury:</label>
                     <select id="jednostki">
-                        <option value="metric">Celsjusza</option>
-                        <option value="imperial">Fahrenheita</option>
+                        <option value="metric">°C</option>
+                        <option value="imperial">°F</option>
                     </select>
                     <button class="check">Sprawdź</button>
                     <p class="error"></p>
-                </div>
-                <img src="" alt="" class="picture">
+                </div>               
             </div>
-            <div class="pogoda-bottom">
-                <p>Pogoda: <span class="pogoda"></span></p>
-                <p>Temperatura: <span class="temperatura"></span></p>
-                <p>Wilgotność: <span class="wilgotnosc"></span></p>
+            <div class="pogoda-bottom">                
+                <h3>Aktualna pogoda w:</h3>
+                <h3 class="miasto-nazwa"></h3>
+                <div id="aktualna-pogoda">   
+                    <div>            
+                        <img src="" alt="" class="picture">
+                        <span id="pogoda" class="weather-display"></span>
+                    </div>
+                    <div id="pogoda-box">                       
+                        <p>Temperatura: <span id="temperatura" class="weather-display"></span></p>
+                        <p>Odczuwalna: <span id="odczuwalna" class="weather-display"></span></p>
+                        <p>Ciśnienie: <span id="cisnienie" class="weather-display"></span></p>
+                        <p>Wilgotność: <span id="wilgotnosc" class="weather-display"></span></p>
+                    </div>
+                </div>            
             </div>
         </section>
     </main>

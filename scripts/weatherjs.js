@@ -18,10 +18,12 @@
 //     "populacja" : 32000000
 // }
 
-
-const wilgotnosc = document.querySelector('.wilgotnosc')
-const temperatura = document.querySelector('.temperatura')
-const pogoda = document.querySelector('.pogoda')
+const pogoda_bottom = document.querySelector('.pogoda-bottom')
+const wilgotnosc = document.querySelector('#wilgotnosc')
+const temperatura = document.querySelector('#temperatura')
+const odczuwalna = document.querySelector('#odczuwalna')
+const cisnienie = document.querySelector('#cisnienie')
+const pogoda = document.querySelector('#pogoda')
 const zdjecie = document.querySelector('.picture')
 const blad = document.querySelector('.error')
 const button = document.querySelector('.check')
@@ -36,6 +38,7 @@ const API_UNITS_IMPERIAL = '&units=imperial'
 const API_LANG = '&lang=pl'
 
 const sprawdzPogode = () => {
+    pogoda_bottom.style.display = 'block'
     const city = input.value || 'Barcelona'
     const jednostki = select.value
     if (jednostki == "metric")
@@ -53,14 +56,18 @@ const sprawdzPogode = () => {
     axios.get(URL).then(response => {
         console.log(response.data)
         const temp = response.data.main.temp
+        const real_temp = response.data.main.feels_like
+        const pressure = response.data.main.pressure
         const hum = response.data.main.humidity
         const status = response.data.weather[0]
 
         nazwaMiasta.textContent = response.data.name
-        temperatura.textContent = Math.round(temp) + sign
+        temperatura.textContent = temp.toFixed(1) + sign
+        odczuwalna.textContent = real_temp.toFixed(1) + sign
+        cisnienie.textContent = `${pressure} hPa`
         wilgotnosc.textContent = `${hum}%`
         pogoda.textContent = status.description
-        zdjecie.src = `img/${status.icon}.png`
+        zdjecie.src = `img/${status.icon}.png`     
         blad.style.display = 'none'
     })
     .catch(error => {
