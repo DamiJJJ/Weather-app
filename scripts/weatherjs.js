@@ -33,6 +33,7 @@ const API_URL = 'https://api.openweathermap.org/data/2.5/weather?q='
 const API_KEY = '&appid=c58789670bdbb47b3015c68589ed18e3'
 const API_UNITS_METRIC = '&units=metric'
 const API_UNITS_IMPERIAL = '&units=imperial'
+const API_LANG = '&lang=pl'
 
 const sprawdzPogode = () => {
     const city = input.value || 'Barcelona'
@@ -47,7 +48,7 @@ const sprawdzPogode = () => {
         units = API_UNITS_IMPERIAL
         sign = "°F"
     }
-    const URL = API_URL + city + API_KEY + units
+    const URL = API_URL + city + API_KEY + units + API_LANG
 
     axios.get(URL).then(response => {
         console.log(response.data)
@@ -58,7 +59,7 @@ const sprawdzPogode = () => {
         nazwaMiasta.textContent = response.data.name
         temperatura.textContent = Math.round(temp) + sign
         wilgotnosc.textContent = `${hum}%`
-        pogoda.textContent = status.main
+        pogoda.textContent = status.description
         zdjecie.src = `img/${status.icon}.png`
         blad.style.display = 'none'
     })
