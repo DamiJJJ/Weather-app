@@ -23,6 +23,9 @@ const wilgotnosc = document.querySelector('#wilgotnosc')
 const temperatura = document.querySelector('#temperatura')
 const odczuwalna = document.querySelector('#odczuwalna')
 const cisnienie = document.querySelector('#cisnienie')
+const clouds = document.querySelector('#clouds')
+const min_temp = document.querySelector('#min-temp')
+const max_temp = document.querySelector('#max-temp')
 const pogoda = document.querySelector('#pogoda')
 const zdjecie = document.querySelector('.picture')
 const blad = document.querySelector('.error')
@@ -59,6 +62,9 @@ const sprawdzPogode = () => {
         const real_temp = response.data.main.feels_like
         const pressure = response.data.main.pressure
         const hum = response.data.main.humidity
+        const cloudiness = response.data.clouds.all
+        const temp_min = response.data.main.temp_min
+        const temp_max = response.data.main.temp_max
         const status = response.data.weather[0]
 
         nazwaMiasta.textContent = response.data.name
@@ -66,6 +72,9 @@ const sprawdzPogode = () => {
         odczuwalna.textContent = real_temp.toFixed(1) + sign
         cisnienie.textContent = `${pressure} hPa`
         wilgotnosc.textContent = `${hum}%`
+        clouds.textContent = `${cloudiness}%`
+        min_temp.textContent = temp_min.toFixed(1) + sign
+        max_temp.textContent = temp_max.toFixed(1) + sign
         pogoda.textContent = status.description
         zdjecie.src = `img/${status.icon}.png`     
         blad.style.display = 'none'
