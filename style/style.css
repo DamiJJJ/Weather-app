@@ -136,12 +136,17 @@ button:active {
 .pogoda-przyszla{
     width: 25vw;
     height: 5vh;
-    display: flex;
+    display: none;
     overflow-x: auto;
     overflow-y: hidden;
-    margin: 1rem 0;
+    scroll-behavior: smooth;
+    margin: 1rem auto;
     background-color: #ddd;
     border: 1px solid rgb(114, 114, 114);
+}
+
+.pogoda-przyszla p{
+    padding: 0 1rem;
 }
 
 .pogoda-przyszla::-webkit-scrollbar{

@@ -18,7 +18,7 @@
 //     "populacja" : 32000000
 // }
 
-const pogoda_bottom = document.querySelector('.pogoda-bottom')
+const pogodaBottom = document.querySelector('.pogoda-bottom')
 const wilgotnosc = document.querySelector('#wilgotnosc')
 const temperatura = document.querySelector('#temperatura')
 const odczuwalna = document.querySelector('#odczuwalna')
@@ -33,6 +33,8 @@ const button = document.querySelector('.check')
 const input = document.querySelector('.city')
 const select = document.querySelector('#jednostki')
 const nazwaMiasta = document.querySelector('.miasto-nazwa')
+const pogodaGodziny = document.querySelector('#pogoda-godziny')
+const pogodaDni = document.querySelector('#pogoda-dni')
 
 const API_URL = 'https://api.openweathermap.org/data/2.5/weather?q='
 const API_URL2 = 'https://api.openweathermap.org/data/2.5/onecall?lat='
@@ -42,7 +44,9 @@ const API_UNITS_IMPERIAL = '&units=imperial'
 const API_LANG = '&lang=pl'
 
 const sprawdzPogode = () => {
-    pogoda_bottom.style.display = 'block'
+    pogodaBottom.style.display = 'block'
+    pogodaGodziny.style.display = 'flex'
+    pogodaDni.style.display = 'flex'
     const city = input.value || 'Barcelona'
     const jednostki = select.value
     if (jednostki == "metric")
@@ -83,8 +87,16 @@ const sprawdzPogode = () => {
         blad.style.display = 'none'
 
         const URL2 = API_URL2 + lat + '&lon=' + lon + '&exclude=current,minutely' + API_KEY + units + API_LANG
+
         axios.get(URL2).then(response2 => {
             console.log(response2.data)
+            for (let i = 0; i < 24; i++){
+                document.querySelector('#temp-hour'+i).textContent = response2.data.hourly[i].temp.toFixed(1) + sign
+                document.querySelector('#realtemp-hour'+i).textContent = response2.data.hourly[i].feels_like.toFixed(1) + sign
+            }
+            // TODO: Dodanie czasu pod temperaturą i przerobienie go na zwykłe godziny
+            // TODO: Dodanie ikony pogody nad temperaturą
+            // TODO: Zrobienie tego samego dla dni 
         })
     })
     .catch(error => {
