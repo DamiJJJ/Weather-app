@@ -35,6 +35,7 @@ const select = document.querySelector('#jednostki')
 const nazwaMiasta = document.querySelector('.miasto-nazwa')
 
 const API_URL = 'https://api.openweathermap.org/data/2.5/weather?q='
+const API_URL2 = 'https://api.openweathermap.org/data/2.5/onecall?lat='
 const API_KEY = '&appid=c58789670bdbb47b3015c68589ed18e3'
 const API_UNITS_METRIC = '&units=metric'
 const API_UNITS_IMPERIAL = '&units=imperial'
@@ -57,7 +58,9 @@ const sprawdzPogode = () => {
     const URL = API_URL + city + API_KEY + units + API_LANG
 
     axios.get(URL).then(response => {
-        console.log(response.data)
+        console.log(response.data)     
+        const lat = response.data.coord.lat
+        const lon = response.data.coord.lon
         const temp = response.data.main.temp
         const real_temp = response.data.main.feels_like
         const pressure = response.data.main.pressure
@@ -65,7 +68,7 @@ const sprawdzPogode = () => {
         const cloudiness = response.data.clouds.all
         const temp_min = response.data.main.temp_min
         const temp_max = response.data.main.temp_max
-        const status = response.data.weather[0]
+        const status = response.data.weather[0]      
 
         nazwaMiasta.textContent = response.data.name
         temperatura.textContent = temp.toFixed(1) + sign
@@ -78,13 +81,18 @@ const sprawdzPogode = () => {
         pogoda.textContent = status.description
         zdjecie.src = `img/${status.icon}.png`     
         blad.style.display = 'none'
+
+        const URL2 = API_URL2 + lat + '&lon=' + lon + '&exclude=current,minutely' + API_KEY + units + API_LANG
+        axios.get(URL2).then(response2 => {
+            console.log(response2.data)
+        })
     })
     .catch(error => {
         error => console.error(error)
         input.value = ''
         blad.style.display = 'block'
         blad.textContent = "Błędne miasto!"
-    })
+    })   
 }
 
 
