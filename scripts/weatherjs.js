@@ -86,17 +86,27 @@ const sprawdzPogode = () => {
         zdjecie.src = `img/${status.icon}.png`     
         blad.style.display = 'none'
 
+// Hourly & daily weather
         const URL2 = API_URL2 + lat + '&lon=' + lon + '&exclude=current,minutely' + API_KEY + units + API_LANG
 
         axios.get(URL2).then(response2 => {
             console.log(response2.data)
-            for (let i = 0; i < 24; i++){
+
+            // Hourly
+            for (let i = 1; i <= 24; i++){
                 document.querySelector('#temp-hour'+i).textContent = response2.data.hourly[i].temp.toFixed(1) + sign
                 document.querySelector('#realtemp-hour'+i).textContent = response2.data.hourly[i].feels_like.toFixed(1) + sign
+                document.querySelector('#picture-hour'+i).src = `img/${response2.data.hourly[i].weather[0].icon}.png`
+                document.querySelector('#time-hour'+i).textContent = timeConverter(response2.data.hourly[i].dt, 1)
             }
-            // TODO: Dodanie czasu pod temperaturą i przerobienie go na zwykłe godziny
-            // TODO: Dodanie ikony pogody nad temperaturą
-            // TODO: Zrobienie tego samego dla dni 
+
+            // Daily
+            for (let i = 1; i <= 7; i++){
+                document.querySelector('#temp-day'+i).textContent = response2.data.daily[i].temp.day.toFixed(1) + sign
+                document.querySelector('#realtemp-day'+i).textContent = response2.data.daily[i].feels_like.day.toFixed(1) + sign
+                document.querySelector('#picture-day'+i).src = `img/${response2.data.daily[i].weather[0].icon}.png`
+                document.querySelector('#time-day'+i).textContent = timeConverter(response2.data.daily[i].dt, 2)
+            }
         })
     })
     .catch(error => {
@@ -107,7 +117,7 @@ const sprawdzPogode = () => {
     })   
 }
 
-
+button.addEventListener('click', drawWeather)
 button.addEventListener('click', sprawdzPogode)
 input.addEventListener('keypress', (event)=> {
     if (event.keyCode === 13) {
