@@ -46,7 +46,7 @@ form{
 }
 
 .miasto-nazwa{
-    color: #0d73f0;
+    color: #f00d0d;
 }
 
 input {
@@ -135,32 +135,57 @@ button:active {
 
 .pogoda-przyszla{
     width: 25vw;
-    height: 15vh;
+    min-height: 10vh;
     display: none;
+    justify-content: space-between;
     overflow-x: auto;
     overflow-y: hidden;
-    scroll-behavior: smooth;
+    scroll-behavior: smooth;   
     margin: 1rem auto;
     background-color: #ddd;
     border: 1px solid rgb(114, 114, 114);
 }
 
 .pogoda-przyszla p{
-    padding: 0 1rem;
+    padding: 0 0.8rem;
+    font-size: 0.85rem;
 }
 
 .pogoda-przyszla::-webkit-scrollbar{
-    height: 5px;
+    height: 5px;    
 }
                     
 .pogoda-przyszla::-webkit-scrollbar-track{
-    background-color: rgb(119, 119, 119);
+    background: rgb(151, 151, 151);
 }
                     
 .pogoda-przyszla::-webkit-scrollbar-thumb{
-    background-color: rgb(0, 0, 0);
+    background: #0d73f0;
+}
+.pogoda-przyszla::-webkit-scrollbar-thumb:hover{
+    background: #04499e;
+}
+
+.picture-hour, .picture-day{
+    height: auto; 
+    max-width: 60px; 
+}
+
+.time-display, .time-temp-display, .time-realtemp-display{ 
+    margin: 0.2rem;   
+    display: block;
+}
+
+.time-temp-display{
+    color: #0d73f0;
+    font-size: larger;
+}
+
+.time-realtemp-display{
+    color: #4a93ec;
 }
 
 .time-display{
-    display: block;
+    color: black;
+    font-size: large;
 }

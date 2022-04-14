@@ -117,7 +117,7 @@ const sprawdzPogode = () => {
     })   
 }
 
-button.addEventListener('click', drawWeather)
+// body.addEventListener('load', drawWeather)
 button.addEventListener('click', sprawdzPogode)
 input.addEventListener('keypress', (event)=> {
     if (event.keyCode === 13) {
