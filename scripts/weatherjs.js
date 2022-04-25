@@ -87,6 +87,7 @@ const sprawdzPogode = () => {
         blad.style.display = 'none'
 
 // Hourly & daily weather
+
         const URL2 = API_URL2 + lat + '&lon=' + lon + '&exclude=current,minutely' + API_KEY + units + API_LANG
 
         axios.get(URL2).then(response2 => {
@@ -113,6 +114,7 @@ const sprawdzPogode = () => {
         error => console.error(error)
         input.value = ''
         blad.style.display = 'block'
+        pogodaBottom.style.display = pogodaGodziny.style.display = pogodaDni.style.display = 'none'
         blad.textContent = "Błędne miasto!"
     })   
 }
