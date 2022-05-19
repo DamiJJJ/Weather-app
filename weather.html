@@ -16,17 +16,14 @@
             <div class="pogoda-top">
                 <div class="miasto-info">                   
                     <input type="text" placeholder="wpisz miasto" class="city">
-                    <label for="jednostki">Jednostki temperatury:</label>
-                    <select id="jednostki">
-                        <option value="metric">°C</option>
-                        <option value="imperial">°F</option>
-                    </select>
                     <button class="check">Sprawdź</button>
                     <p class="error"></p>
                 </div>               
             </div>
             <div class="pogoda-bottom">                
-                <h3>Aktualna pogoda w: <span class="miasto-nazwa"></span></h3>
+                <h3>Aktualna pogoda w: <span class="miasto-nazwa"></span>
+                    <div class="unit" id="metric">°C</div>
+                </h3>
                 <div id="aktualna-pogoda">   
                     <div id="pogoda-picture">            
                         <img src="" alt="" class="picture">

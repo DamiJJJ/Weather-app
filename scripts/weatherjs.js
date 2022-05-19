@@ -31,7 +31,7 @@ const zdjecie = document.querySelector('.picture')
 const blad = document.querySelector('.error')
 const button = document.querySelector('.check')
 const input = document.querySelector('.city')
-const select = document.querySelector('#jednostki')
+const unit = document.querySelector('.unit')
 const nazwaMiasta = document.querySelector('.miasto-nazwa')
 const pogodaGodziny = document.querySelector('#pogoda-godziny')
 const pogodaDni = document.querySelector('#pogoda-dni')
@@ -47,8 +47,8 @@ const sprawdzPogode = () => {
     pogodaBottom.style.display = 'block'
     pogodaGodziny.style.display = 'flex'
     pogodaDni.style.display = 'flex'
-    const city = input.value || 'Barcelona'
-    const jednostki = select.value
+    const city = input.value || 'Gdynia'
+    const jednostki = unit.id
     if (jednostki == "metric")
     {
         units = API_UNITS_METRIC
@@ -119,6 +119,19 @@ const sprawdzPogode = () => {
     })   
 }
 
+const zmienJednostke = () => {
+    if(unit.id != 'imperial'){
+        unit.id = 'imperial'
+        unit.innerHTML = '°F'
+    }
+    else{
+        unit.id = 'metric'
+        unit.innerHTML = '°C'
+    }      
+    button.click()
+}
+
+unit.addEventListener('click', zmienJednostke)
 button.addEventListener('click', sprawdzPogode)
 input.addEventListener('keypress', (event)=> {
     if (event.keyCode === 13) {

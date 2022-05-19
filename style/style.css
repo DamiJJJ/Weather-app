@@ -46,8 +46,26 @@ form{
     border: 1px solid rgb(114, 114, 114);
 }
 
+.pogoda-bottom h3{
+    margin-bottom: 0;
+}
+
 .miasto-nazwa{
     color: #f00d0d;
+}
+
+.unit{
+    width: 1rem;
+    height: 1rem;
+    color: #0069ed;
+    cursor: pointer;
+    margin: 10px auto 0;
+    transition: color 250ms ease-in-out;
+}
+
+.unit:hover,
+.unit:focus {
+    color: #0053ba;
 }
 
 input {
@@ -65,7 +83,7 @@ button{
     background: #0069ed;
     color: white;
     cursor: pointer;
-    font-size: larger;
+    font-size: 1vw;
     border: none;
     text-align: center;
     transition: background 250ms ease-in-out, 
