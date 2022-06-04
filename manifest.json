@@ -1,0 +1,32 @@
+{
+    "theme_color": "#9b9b9b",
+    "background_color": "#4a90e2",
+    "display": "browser",
+    "scope": "/",
+    "start_url": "/Zaawansowane-technologie-internetowe/",
+    "name": "Weather App - Damian Mrozek",
+    "short_name": "Weather App",
+    "description": "Walidator formularzy oraz rozbudowana aplikacja pogodowa w ramach projektu WSB",
+    "icons": [
+        {
+            "src": "/icon-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/icon-256x256.png",
+            "sizes": "256x256",
+            "type": "image/png"
+        },
+        {
+            "src": "/icon-384x384.png",
+            "sizes": "384x384",
+            "type": "image/png"
+        },
+        {
+            "src": "/icon-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}
