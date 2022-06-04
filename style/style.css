@@ -25,8 +25,16 @@ section{
     text-align: center;
 }
 
+footer{
+    text-align: center;
+}
+
 span{
     color: red;
+}
+
+.map{
+    padding: 15px;
 }
 
 .weather-display{
@@ -68,8 +76,17 @@ form{
     color: #0053ba;
 }
 
+.pogoda-top{
+    margin: auto;
+    width: 100%;
+}
+
 input {
     width: 100%;
+}
+
+.city{
+    width: 500px;
 }
 
 .picture{
@@ -83,7 +100,7 @@ button{
     background: #0069ed;
     color: white;
     cursor: pointer;
-    font-size: 1vw;
+    font-size: 100%;
     border: none;
     text-align: center;
     transition: background 250ms ease-in-out, 
@@ -129,12 +146,9 @@ button:active {
     margin: 1rem auto;
 }
 
-.city{
-   margin-bottom: 1rem; 
-}
-
 .pogoda-bottom{
-    min-width: 25vw;
+    margin: auto;
+    width: 25%;
     min-height: 15vh;
     display: none;
     background-color: #ddd;
@@ -153,7 +167,7 @@ button:active {
 }
 
 .pogoda-przyszla{
-    width: 25vw;
+    width: 25%;
     min-height: 10vh;
     display: none;
     justify-content: space-between;
@@ -207,4 +221,41 @@ button:active {
 .time-display{
     color: black;
     font-size: large;
+}
+
+/* responsive */
+@media (max-width: 768px) {
+
+    main {
+        flex-grow: 1;
+        flex-wrap: wrap;
+        flex-direction: column;
+    }
+
+    .map{
+        padding: 5px;
+    }
+    
+    .map iframe{
+        width: 100%;
+    }
+
+    .buttons-box{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+    }
+
+    header{
+        padding: 5px;
+        font-size: smaller;
+    }
+
+    .city{
+        width: 250px;
+    }
+
+    .pogoda-bottom, .pogoda-przyszla{
+        width: 15%;
+    }
 }
