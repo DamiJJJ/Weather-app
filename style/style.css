@@ -18,6 +18,8 @@ main
     flex-grow: 1;
     display: flex;
     flex-direction: row;
+    margin: auto;
+    width: 95%;
 }
 
 section{
@@ -34,7 +36,12 @@ span{
 }
 
 .map{
+    margin: 0 5px auto auto;
     padding: 15px;
+}
+
+.form{
+    margin: 0 auto 0 5px;
 }
 
 .weather-display{
@@ -76,8 +83,8 @@ form{
     color: #0053ba;
 }
 
-.pogoda-top{
-    margin: auto;
+.pogoda-info{
+    margin: 0 auto;
     width: 100%;
 }
 
@@ -86,12 +93,21 @@ input {
 }
 
 .city{
-    width: 500px;
+    width: 30%;
 }
 
 .picture{
     display: block;
     margin: 0 auto;
+}
+
+.buttons-box{
+    display: flex;
+    flex-direction: row;
+}
+
+.clear, .send{
+    width: 50%;
 }
 
 button{
@@ -148,7 +164,7 @@ button:active {
 
 .pogoda-bottom{
     margin: auto;
-    width: 25%;
+    width: 50%;
     min-height: 15vh;
     display: none;
     background-color: #ddd;
@@ -167,7 +183,7 @@ button:active {
 }
 
 .pogoda-przyszla{
-    width: 25%;
+    width: 50%;
     min-height: 10vh;
     display: none;
     justify-content: space-between;
@@ -224,8 +240,7 @@ button:active {
 }
 
 /* responsive */
-@media (max-width: 768px) {
-
+@media (max-width: 868px) { 
     main {
         flex-grow: 1;
         flex-wrap: wrap;
@@ -233,22 +248,22 @@ button:active {
     }
 
     .map{
-        padding: 5px;
+        padding: 0;
+        margin: auto;
+    }
+
+    .form{
+        margin: auto auto 1rem;
     }
     
     .map iframe{
         width: 100%;
     }
+ }
 
-    .buttons-box{
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: column;
-    }
-
+@media (max-width: 768px) {
     header{
         padding: 5px;
-        font-size: smaller;
     }
 
     .city{
@@ -256,6 +271,6 @@ button:active {
     }
 
     .pogoda-bottom, .pogoda-przyszla{
-        width: 15%;
+        width: 100%;
     }
 }
