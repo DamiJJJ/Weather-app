@@ -1,8 +1,13 @@
 # Weather App
 
-A weather checking application made as project for "Advanced internet technologies".
-Application also contains form validator. It's written as PWA and made responsive to easily run it on mobile devices.
+A weather checking application made as project for "**Advanced Internet Technologies**" subject.
+Application also contains form validator. It's written as PWA to easily run it on mobile devices.
 
-## Used: HTML, JS, CSS + Weather API
+# Used technologies:
 
-## You can see it working [here](https://damijjj.github.io/Weather-app/)
+- HTML
+- CSS
+- JS
+- Weather API
+
+You can see it working _[here](https://damijjj.github.io/Weather-app/)_.
