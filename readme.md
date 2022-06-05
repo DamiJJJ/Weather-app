@@ -1,7 +1,7 @@
 # Weather App
 
 A weather checking application made as project for "**Advanced Internet Technologies**" subject.
-Application also contains form validator. It's written as PWA to easily run it on mobile devices.
+Application also contains form validator. It's written as PWA and made responsive to easily run it on mobile devices.
 
 # Used technologies:
 
