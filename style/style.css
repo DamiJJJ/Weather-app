@@ -1,276 +1,86 @@
-*{
-    box-sizing: border-box;
-    font-family: Arial;
+:root {
+    --bs-body-bg: #f8f9fa;
+    --bs-body-color: #212529;
+    --bs-primary: #0d6efd;
+    --bs-dark: #212529;
+    --bs-info: #0dcaf0;
+    --bs-danger: #dc3545;
+    --bs-success: #198754;
+    --bs-secondary: #6c757d;
+    --main-font: "Montserrat", sans-serif;
 }
 
-body{
-    min-height: 100vh;
-    margin: 0;
-    overflow-y: auto;
+html {
+    scroll-behavior: smooth;
+    font-size: 62.5%;
+}
+
+body {
+    font-family: var(--main-font);
+    font-size: 1.6rem;
+    line-height: 1.6;
+}
+
+#pogoda-godziny,
+#pogoda-dni {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.forecast-item {
+    min-width: 120px;
+    margin: 0 8px;
+    padding: 10px;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    background-color: #e9ecef;
+    color: var(--bs-body-color);
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     align-items: center;
-}
-
-main
-{
-    flex-grow: 1;
-    display: flex;
-    flex-direction: row;
-    margin: auto;
-    width: 95%;
-}
-
-section{
-    margin: 10px;
-    text-align: center;
-}
-
-footer{
-    text-align: center;
-}
-
-span{
-    color: red;
-}
-
-.map{
-    margin: 0 5px auto auto;
-    padding: 15px;
-}
-
-.form{
-    margin: 0 auto 0 5px;
-}
-
-.weather-display{
-    color: #0d73f0;
-}
-
-.error{
-    display: none;
-    color: red;
-    font-size: small;
-}
-
-form{
-    text-align: left;
-    padding: 10px;
-    background-color: #eee;
-    border: 1px solid rgb(114, 114, 114);
-}
-
-.pogoda-bottom h3{
-    margin-bottom: 0;
-}
-
-.miasto-nazwa{
-    color: #f00d0d;
-}
-
-.unit{
-    width: 1rem;
-    height: 1rem;
-    color: #0069ed;
-    cursor: pointer;
-    margin: 10px auto 0;
-    transition: color 250ms ease-in-out;
-}
-
-.unit:hover,
-.unit:focus {
-    color: #0053ba;
-}
-
-.pogoda-info{
-    margin: 0 auto;
-    width: 100%;
-}
-
-input {
-    width: 100%;
-}
-
-.city{
-    width: 30%;
-}
-
-.picture{
-    display: block;
-    margin: 0 auto;
-}
-
-.buttons-box{
-    display: flex;
-    flex-direction: row;
-}
-
-.clear, .send{
-    width: 50%;
-}
-
-button{
-    margin: 1rem;
-    padding: 1rem;
-    background: #0069ed;
-    color: white;
-    cursor: pointer;
-    font-size: 100%;
-    border: none;
-    text-align: center;
-    transition: background 250ms ease-in-out, 
-                transform 150ms ease;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-}
-
-button:hover,
-button:focus {
-    background: #0053ba;
-}
-
-button:focus {
-    outline: 1px solid #fff;
-    outline-offset: -4px;
-}
-
-button:active {
-    transform: scale(0.99);
-}
-
-.box{
-    padding: 5px;
-}
-
-.link{
-    text-decoration: none;
-    font-weight: bold;
-    color: rgb(255, 75, 75); 
-    transition: 500ms;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-}
-
-.link:hover,
-.link:focus{
-    color: rgb(150, 0, 0);   
-}
-
-.check{
-    display: block;
-    margin: 1rem auto;
-}
-
-.pogoda-bottom{
-    margin: auto;
-    width: 50%;
-    min-height: 15vh;
-    display: none;
-    background-color: #ddd;
-    border: 1px solid rgb(114, 114, 114);
-}
-
-#aktualna-pogoda{
-    display: flex; 
-    flex-direction: row;
     justify-content: center;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
 }
 
-#pogoda-picture, #pogoda-box{
-    width: 50%;
-    margin: auto;
+.forecast-item img {
+    width: 60px;
+    height: auto;
+    margin-bottom: 5px;
 }
 
-.pogoda-przyszla{
-    width: 50%;
-    min-height: 10vh;
+.time-display {
+    font-size: 1.3rem;
+    color: var(--bs-secondary);
+}
+.time-temp-display {
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: var(--bs-primary);
+}
+.time-realtemp-display {
+    font-size: 1.4rem;
+    color: var(--bs-info);
+}
+
+/* Ukrywanie scrollbara*/
+.overflow-auto::-webkit-scrollbar {
     display: none;
-    justify-content: space-between;
-    overflow-x: auto;
-    overflow-y: hidden;
-    scroll-behavior: smooth;   
-    margin: 1rem auto;
-    background-color: #ddd;
-    border: 1px solid rgb(114, 114, 114);
+}
+.overflow-auto {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
-.pogoda-przyszla p{
-    padding: 0 0.8rem;
-    font-size: 0.85rem;
-}
-
-.pogoda-przyszla::-webkit-scrollbar{
-    height: 5px;    
-}
-                    
-.pogoda-przyszla::-webkit-scrollbar-track{
-    background: rgb(151, 151, 151);
-}
-                    
-.pogoda-przyszla::-webkit-scrollbar-thumb{
-    background: #0d73f0;
-}
-.pogoda-przyszla::-webkit-scrollbar-thumb:hover{
-    background: #04499e;
-}
-
-.picture-hour, .picture-day{
-    height: auto; 
-    max-width: 60px; 
-}
-
-.time-display, .time-temp-display, .time-realtemp-display{ 
-    margin: 0.2rem;   
-    display: block;
-}
-
-.time-temp-display{
-    color: #0d73f0;
-    font-size: larger;
-}
-
-.time-realtemp-display{
-    color: #4a93ec;
-}
-
-.time-display{
-    color: black;
-    font-size: large;
-}
-
-/* responsive */
-@media (max-width: 868px) { 
-    main {
-        flex-grow: 1;
-        flex-wrap: wrap;
-        flex-direction: column;
+/* Media Query dla większych ekranów (np. tabletów i desktopów) */
+@media (min-width: 768px) {
+    #pogoda-godziny,
+    #pogoda-dni {
+        justify-content: center;
+        padding-left: 0;
+        padding-right: 0;
     }
 
-    .map{
-        padding: 0;
-        margin: auto;
-    }
-
-    .form{
-        margin: auto auto 1rem;
-    }
-    
-    .map iframe{
-        width: 100%;
-    }
- }
-
-@media (max-width: 768px) {
-    header{
-        padding: 5px;
-    }
-
-    .city{
-        width: 75%;
-    }
-
-    .pogoda-bottom, .pogoda-przyszla{
-        width: 100%;
+    .forecast-item {
+        margin: 0 10px;
     }
 }

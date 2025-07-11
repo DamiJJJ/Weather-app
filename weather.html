@@ -8,52 +8,76 @@
     <meta name="author" content="Damian Mrozek">
     <title>Aplikacja pogodowa</title>
     <link rel="icon" href="img/cloud-sun.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
     <link rel="stylesheet" href="style/style.css">
 </head>
-<body onload="drawWeather()">
-    <header>
-        <h1>Sprawdź pogodę</h1>
+<body class="d-flex flex-column min-vh-100 bg-light text-dark">
+    <header class="bg-primary text-white p-3 text-center shadow-sm">
+        <h1 class="mb-0">Sprawdź pogodę</h1>
     </header>
-    <main>
-        <section class="pogoda-info">
-            <div class="pogoda-top">                  
-                    <input type="text" placeholder="wpisz miasto" class="city">
-                    <button class="check">Sprawdź</button>
-                    <p class="error"></p>              
+
+    <main class="container my-4 flex-grow-1">
+        <section class="pogoda-top text-center mb-4">
+            <div class="input-group mb-3 shadow-sm">
+                <input type="text" class="form-control city" placeholder="wpisz miasto" aria-label="Wpisz miasto">
             </div>
-            <div class="pogoda-bottom">                
-                <h3>Aktualna pogoda w: <span class="miasto-nazwa"></span>
-                    <div class="unit" id="metric">°C</div>
-                </h3>
-                <div id="aktualna-pogoda">   
-                    <div id="pogoda-picture">            
-                        <img src="" alt="" class="picture">
-                        <span id="pogoda" class="weather-display"></span>                       
+
+            <div class="d-grid gap-2 col-6 mx-auto mb-3"> <button class="btn btn-primary check" type="button">Sprawdź</button>
+            </div>
+
+            <p class="text-danger error small" style="display: none;">Błędne miasto lub problem z API!</p>
+        </section>
+
+        <section class="card mb-4 shadow-sm" id="pogoda-bottom" style="display: none;">
+            <div class="card-header d-flex justify-content-between align-items-center bg-light text-dark">
+                <h3 class="card-title mb-0">Aktualna pogoda w: <span class="miasto-nazwa text-primary"></span></h3>
+                <div class="unit text-secondary fw-bold" id="metric" style="cursor: pointer;">°C</div>
+            </div>
+            <div class="card-body">
+                <div id="aktualna-pogoda" class="d-flex flex-column flex-md-row justify-content-center align-items-center">
+                    <div id="pogoda-picture" class="text-center me-md-4 mb-3 mb-md-0">
+                        <img src="" alt="Ikona pogody" class="picture img-fluid" style="max-width: 100px;">
+                        <span id="pogoda" class="weather-display text-muted d-block mt-2 small"></span>
                     </div>
-                    <div id="pogoda-box">                       
-                        <p>Temperatura: <span id="temperatura" class="weather-display"></span></p>
-                        <p>Odczuwalna: <span id="odczuwalna" class="weather-display"></span></p>
-                        <p>Ciśnienie: <span id="cisnienie" class="weather-display"></span></p>
-                        <p>Wilgotność: <span id="wilgotnosc" class="weather-display"></span></p>  
-                        <p>Zachmurzenie: <span id="clouds" class="weather-display"></span></p>                    
-                        <p>Temp. Min: <span id="min-temp" class="weather-display"></span></p>
-                        <p>Temp. Max: <span id="max-temp" class="weather-display"></span></p>
+                    <div id="pogoda-box" class="text-start text-dark">
+                        <p class="mb-1">Temperatura: <span id="temperatura" class="weather-display fw-bold text-success"></span></p>
+                        <p class="mb-1">Odczuwalna: <span id="odczuwalna" class="weather-display fw-bold text-info"></span></p>
+                        <p class="mb-1">Ciśnienie: <span id="cisnienie" class="weather-display"></span> hPa</p>
+                        <p class="mb-1">Wilgotność: <span id="wilgotnosc" class="weather-display"></span>%</p>
+                        <p class="mb-1">Zachmurzenie: <span id="clouds" class="weather-display"></span>%</p>
+                        <p class="mb-1">Temp. Min: <span id="min-temp" class="weather-display fw-bold text-secondary"></span></p>
+                        <p class="mb-0">Temp. Max: <span id="max-temp" class="weather-display fw-bold text-danger"></span></p>
                     </div>
-                </div>            
+                </div>
             </div>
-            <div class="pogoda-przyszla" id="pogoda-godziny">
+        </section>
+
+        <section class="card mb-4 shadow-sm" id="pogoda-godziny-section" style="display: none;">
+            <div class="card-header bg-light text-dark">
+                <h4 class="card-title mb-0">Prognoza godzinowa</h4>
             </div>
-            <div class="pogoda-przyszla" id="pogoda-dni">
+            <div class="card-body d-flex flex-nowrap overflow-auto py-2" id="pogoda-godziny">
+            </div>
+        </section>
+
+        <section class="card mb-4 shadow-sm" id="pogoda-dni-section" style="display: none;">
+            <div class="card-header bg-light text-dark">
+                <h4 class="card-title mb-0">Prognoza dzienna</h4>
+            </div>
+            <div class="card-body d-flex flex-nowrap overflow-auto py-2" id="pogoda-dni">
             </div>
         </section>
     </main>
-    <a href="index.html" class="link">Powróć na stronę główną</a>
-    <footer>
-        <p>Projekt WSB 2022 - Zaawansowane technologie internetowe</p>
+
+    <a href="index.html" class="btn btn-outline-secondary btn-lg d-block mx-auto mb-4" style="max-width: 250px;">Powróć na stronę główną</a>
+
+    <footer class="bg-dark text-white p-3 text-center mt-auto shadow">
+        <p class="mb-0">Projekt 2025</p>
     </footer>
-    <!-- ! Axios pobiera dane zamiast fetch'a w JS -->   
+
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
     <script src="scripts/scroll.js"></script>
-    <script src="scripts/weatherjs.js"></script>   
+    <script src="scripts/weatherjs.js"></script>
 </body>
 </html>

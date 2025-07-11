@@ -9,52 +9,56 @@
     <meta name="theme-color" content="#9b9b9b">
     <title>Walidator formularza</title>
     <link rel="icon" href="img/form.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
     <link rel="stylesheet" href="style/style.css">
     <link rel="manifest" href="manifest/manifest.json">
 </head>
-<body>
-    <header>
-        <h1>Strona główna</h1>
+<body class="d-flex flex-column min-vh-100 bg-light text-dark">
+    <header class="bg-dark text-white text-center py-3 shadow-sm">
+        <h1 class="mb-0">Formularz Rejestracyjny</h1>
     </header>
-    <main>
-        <section class="map">
-            <p>Jak do nas dojechać?</p>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2323.1829876184!2d18.58209755194693!3d54.38908280369721!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46fd73bd51f21f8b%3A0x50c8a05c9778d809!2sWy%C5%BCsza%20Szko%C5%82a%20Bankowa%20w%20Gda%C5%84sku!5e0!3m2!1spl!2spl!4v1645292571934!5m2!1spl!2spl" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-        </section>
-        <section class="form">
-            <h2>Formularz rejestracyjny</h2>
-            <form>
-                <div class="box">
-                    <label for="userName"><span>*</span>Nazwa użytkownika:</label>
-                    <input type="text" id="userName" placeholder="nazwa użytkownika" required>
-                    <p class="error">błąd</p>
+
+    <main class="container my-5 flex-grow-1">
+        <section class="card p-4 shadow-lg">
+            <h2 class="card-title text-center mb-4 text-primary">Rejestracja</h2>
+            <form id="form" class="row g-3">
+                <div class="col-md-6">
+                    <label for="username" class="form-label">Nazwa użytkownika:</label>
+                    <input type="text" class="form-control" id="username" placeholder="Wpisz nazwę">
+                    <div class="text-danger error-text mt-1 small"></div>
                 </div>
-                <div class="box">
-                    <label for="password1"><span>*</span>Hasło:</label>
-                    <input type="password" id="password1" placeholder="podaj hasło" required>
-                    <p class="error">błąd</p>
+                <div class="col-md-6">
+                    <label for="email" class="form-label">E-mail:</label>
+                    <input type="email" class="form-control" id="email" placeholder="Wpisz adres e-mail">
+                    <div class="text-danger error-text mt-1 small"></div>
                 </div>
-                <div class="box">
-                    <label for="password2"><span>*</span>Powtórz hasło:</label>
-                    <input type="password" id="password2" placeholder="powtórz hasło" required>
-                    <p class="error">błąd</p>
+                <div class="col-md-6">
+                    <label for="password" class="form-label">Hasło:</label>
+                    <input type="password" class="form-control" id="password" placeholder="Wpisz hasło">
+                    <div class="text-danger error-text mt-1 small"></div>
                 </div>
-                <div class="box">
-                    <label for="email"><span>*</span>E-mail:</label>
-                    <input type="email" id="email" placeholder="podaj e-mail" required>
-                    <p class="error">błąd</p>
+                <div class="col-md-6">
+                    <label for="password2" class="form-label">Powtórz hasło:</label>
+                    <input type="password" class="form-control" id="password2" placeholder="Powtórz hasło">
+                    <div class="text-danger error-text mt-1 small"></div>
                 </div>
-                <div class="buttons-box">
-                    <button class="clear">Wyczyść</button>
-                    <button class="send">Wyślij</button>
+                <div class="col-12 text-center mt-4">
+                    <button type="submit" class="btn btn-primary btn-lg me-3">Wyślij</button>
+                    <button type="reset" class="btn btn-secondary btn-lg">Wyczyść</button>
                 </div>
             </form>
         </section>
+        <div class="text-center mt-5">
+            <a href="weather.html" class="btn btn-info btn-lg shadow">Sprawdź pogodę</a>
+        </div>
     </main>
-    <a href="weather.html" class="link">Sprawdź pogodę w dowolnym mieście</a>
-    <footer>
-        <p>Projekt WSB 2022 - Zaawansowane technologie internetowe</p>
+
+    <footer class="bg-dark text-white text-center py-3 mt-auto shadow">
+        <p class="mb-0">Projekt 2025</p>
     </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
     <script src="scripts/sw.js"></script>
     <script src="scripts/script.js"></script>
 </body>
