@@ -29,15 +29,16 @@ scrollContainer2.addEventListener("wheel", (evt) => {
   });
 
 function drawWeather(){
-  for (let i = 1; i <= 24; i++){
-    var tag = document.createElement('p')
-    tag.innerHTML = '<img src="" alt="" class="picture-hour" id="picture-hour' + i + '"><span id="temp-hour' + i + '" class="time-temp-display"></span><span id="realtemp-hour' + i + '" class="time-realtemp-display"></span><span id="time-hour' + i + '" class="time-display"></span>'
-    scrollContainer1.appendChild(tag)
-  }
+  //! OBSOLETE
+  // for (let i = 1; i <= 24; i++){
+  //   var tag = document.createElement('p')
+  //   tag.innerHTML = '<img src="" alt="" class="picture-hour" id="picture-hour' + i + '"><span id="temp-hour' + i + '" class="time-temp-display"></span><span id="realtemp-hour' + i + '" class="time-realtemp-display"></span><span id="time-hour' + i + '" class="time-display"></span>'
+  //   scrollContainer1.appendChild(tag)
+  // }
   
-  for (let i = 1; i <= 7; i++){
-    var tag = document.createElement('p')
-    tag.innerHTML = '<img src="" alt="" class="picture-day" id="picture-day' + i + '"><span id="temp-day' + i + '" class="time-temp-display"></span><span id="realtemp-day' + i + '" class="time-realtemp-display"></span><span id="time-day' + i + '" class="time-display"></span>'
-    scrollContainer2.appendChild(tag)
-  }
+  // for (let i = 1; i <= 7; i++){
+  //   var tag = document.createElement('p')
+  //   tag.innerHTML = '<img src="" alt="" class="picture-day" id="picture-day' + i + '"><span id="temp-day' + i + '" class="time-temp-display"></span><span id="realtemp-day' + i + '" class="time-realtemp-display"></span><span id="time-day' + i + '" class="time-display"></span>'
+  //   scrollContainer2.appendChild(tag)
+  // }
 }
